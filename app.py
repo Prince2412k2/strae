@@ -1,5 +1,5 @@
 import streamlit as st
-from main import search_and_answer
+from news_fetcher import search_and_answer
 
 st.set_page_config(page_title="Chatbot", page_icon=":robot_face:", layout="wide")
 
@@ -19,6 +19,7 @@ if prompt := st.chat_input("What is up?"):
         st.markdown(prompt)
 
     with st.chat_message("assistant"):
-        response = search_and_answer(prompt)
-        st.markdown(response)
+        with st.spinner("Thinking..."):
+            response = search_and_answer(prompt)
+            st.markdown(response)
     st.session_state.messages.append({"role": "assistant", "content": response})
