@@ -3,7 +3,7 @@ from news_fetcher import search_and_answer
 
 st.set_page_config(page_title="Chatbot", page_icon=":robot_face:", layout="wide")
 
-st.title("Interactive Chatbot")
+st.title("News Chatbot")
 st.write("Ask me anything!")
 
 if "messages" not in st.session_state:
